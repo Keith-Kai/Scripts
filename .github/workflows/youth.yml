@@ -6,7 +6,7 @@ name: 中青看点
 on:
   workflow_dispatch:
   schedule:
-     - cron: '*/7 */5 * * *'
+     - cron: '*/7 */2 * * *'
   watch:
     types: started
 
@@ -17,6 +17,7 @@ jobs:
     env:
         YOUTH_HEADER: ${{ secrets.YOUTH_HEADER }}
         YOUTH_ARTBODY: ${{ secrets.YOUTH_ARTBODY }}
+        YOUTH_REDBODY: ${{ secrets.YOUTH_REDBODY }}
         YOUTH_TIME: ${{ secrets.YOUTH_TIME }}
     steps:
       - name: Checkout
@@ -35,7 +36,6 @@ jobs:
           node Task/youth.js
         env:
           YOUTH_NOTIFY_CONTROL: ${{ secrets.YOUTH_NOTIFY_CONTROL }}
-          TZ: Asia/shanghai
           PUSH_KEY: ${{ secrets.PUSH_KEY}}
           BARK_PUSH: ${{ secrets.BARK_PUSH}}
           BARK_SOUND: ${{ secrets.BARK_SOUND}}
