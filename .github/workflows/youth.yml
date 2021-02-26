@@ -17,7 +17,6 @@ jobs:
     env:
         YOUTH_HEADER: ${{ secrets.YOUTH_HEADER }}
         YOUTH_ARTBODY: ${{ secrets.YOUTH_ARTBODY }}
-        YOUTH_REDBODY: ${{ secrets.YOUTH_REDBODY }}
         YOUTH_TIME: ${{ secrets.YOUTH_TIME }}
     steps:
       - name: Checkout
@@ -34,6 +33,7 @@ jobs:
         if: env.YOUTH_HEADER
         run: |
           node Task/youth.js
+          TZ：亚洲/上海
         env:
           YOUTH_NOTIFY_CONTROL: ${{ secrets.YOUTH_NOTIFY_CONTROL }}
           PUSH_KEY: ${{ secrets.PUSH_KEY}}
